@@ -1,0 +1,22 @@
+[project]
+name = "sales-monitor-api"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "deepak404found",email = "deepakyadu404@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "django (>=5.1.7,<6.0.0)",
+    "djangorestframework (>=3.15.2,<4.0.0)",
+    "djangorestframework-simplejwt (>=5.5.0,<6.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "sales_monitor_api", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
