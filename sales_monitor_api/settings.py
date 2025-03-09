@@ -52,6 +52,7 @@ EXTERNAL_APPS = [
     "users",
     "products",
     "django_extensions",
+    "django_filters",
 ]
 
 INSTALLED_APPS += EXTERNAL_APPS
@@ -69,7 +70,7 @@ REST_FRAMEWORK = {
         )
     ),
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
-    "PAGE_SIZE": 10,  # Default limit
+    "PAGE_SIZE": 10,  # Default limit for pagination
 }
 
 SIMPLE_JWT = {

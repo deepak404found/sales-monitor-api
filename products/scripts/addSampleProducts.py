@@ -1,6 +1,6 @@
 import json
 from products.serializers import ProductSerializer
-from products.models import Product  # Import the Product model
+from products.models import Product
 
 
 def run():
