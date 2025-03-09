@@ -1,0 +1,202 @@
+[
+    {
+        "title": "Wireless Headphones",
+        "price": 150.00,
+        "description": "High-quality wireless headphones with noise cancellation.",
+        "category": "Electronics",
+        "image": "https://example.com/images/wireless-headphones.jpg",
+        "sold": true,
+        "is_sale": true,
+        "date_of_sale": "2024-11-20"
+    },
+    {
+        "title": "Gaming Laptop",
+        "price": 1200.00,
+        "description": "High-performance laptop for gaming and productivity.",
+        "category": "Electronics",
+        "image": "https://example.com/images/gaming-laptop.jpg",
+        "sold": false,
+        "is_sale": false,
+        "date_of_sale": null
+    },
+    {
+        "title": "Yoga Mat",
+        "price": 25.00,
+        "description": "Eco-friendly yoga mat with non-slip surface.",
+        "category": "Fitness",
+        "image": "https://example.com/images/yoga-mat.jpg",
+        "sold": true,
+        "is_sale": false,
+        "date_of_sale": "2024-11-15"
+    },
+    {
+        "title": "Smart Watch",
+        "price": 200.00,
+        "description": "Feature-packed smartwatch with heart rate monitor.",
+        "category": "Electronics",
+        "image": "https://example.com/images/smart-watch.jpg",
+        "sold": true,
+        "is_sale": true,
+        "date_of_sale": "2024-11-18"
+    },
+    {
+        "title": "Running Shoes",
+        "price": 80.00,
+        "description": "Comfortable running shoes for all terrains.",
+        "category": "Fitness",
+        "image": "https://example.com/images/running-shoes.jpg",
+        "sold": false,
+        "is_sale": true,
+        "date_of_sale": null
+    },
+    {
+        "title": "Bluetooth Speaker",
+        "price": 45.00,
+        "description": "Portable Bluetooth speaker with deep bass.",
+        "category": "Electronics",
+        "image": "https://example.com/images/bluetooth-speaker.jpg",
+        "sold": true,
+        "is_sale": true,
+        "date_of_sale": "2024-11-10"
+    },
+    {
+        "title": "Office Chair",
+        "price": 120.00,
+        "description": "Ergonomic office chair with adjustable height.",
+        "category": "Furniture",
+        "image": "https://example.com/images/office-chair.jpg",
+        "sold": false,
+        "is_sale": false,
+        "date_of_sale": null
+    },
+    {
+        "title": "Standing Desk",
+        "price": 300.00,
+        "description": "Adjustable standing desk for a healthy workspace.",
+        "category": "Furniture",
+        "image": "https://example.com/images/standing-desk.jpg",
+        "sold": true,
+        "is_sale": false,
+        "date_of_sale": "2024-11-22"
+    },
+    {
+        "title": "Cookware Set",
+        "price": 75.00,
+        "description": "Non-stick cookware set for everyday cooking.",
+        "category": "Kitchen",
+        "image": "https://example.com/images/cookware-set.jpg",
+        "sold": false,
+        "is_sale": true,
+        "date_of_sale": null
+    },
+    {
+        "title": "Electric Kettle",
+        "price": 40.00,
+        "description": "Quick-boil electric kettle with auto shut-off.",
+        "category": "Kitchen",
+        "image": "https://example.com/images/electric-kettle.jpg",
+        "sold": true,
+        "is_sale": true,
+        "date_of_sale": "2024-11-05"
+    },
+    {
+        "title": "Mountain Bike",
+        "price": 500.00,
+        "description": "Durable mountain bike for off-road adventures.",
+        "category": "Fitness",
+        "image": "https://example.com/images/mountain-bike.jpg",
+        "sold": false,
+        "is_sale": false,
+        "date_of_sale": null
+    },
+    {
+        "title": "Winter Jacket",
+        "price": 90.00,
+        "description": "Waterproof winter jacket with hood.",
+        "category": "Clothing",
+        "image": "https://example.com/images/winter-jacket.jpg",
+        "sold": true,
+        "is_sale": true,
+        "date_of_sale": "2024-11-15"
+    },
+    {
+        "title": "Gaming Mouse",
+        "price": 35.00,
+        "description": "Ergonomic gaming mouse with RGB lighting.",
+        "category": "Electronics",
+        "image": "https://example.com/images/gaming-mouse.jpg",
+        "sold": true,
+        "is_sale": true,
+        "date_of_sale": "2024-11-12"
+    },
+    {
+        "title": "Leather Wallet",
+        "price": 25.00,
+        "description": "Premium leather wallet with RFID protection.",
+        "category": "Accessories",
+        "image": "https://example.com/images/leather-wallet.jpg",
+        "sold": false,
+        "is_sale": false,
+        "date_of_sale": null
+    },
+    {
+        "title": "Sunglasses",
+        "price": 50.00,
+        "description": "Stylish sunglasses with UV protection.",
+        "category": "Accessories",
+        "image": "https://example.com/images/sunglasses.jpg",
+        "sold": true,
+        "is_sale": false,
+        "date_of_sale": "2024-11-20"
+    },
+    {
+        "title": "Microwave Oven",
+        "price": 250.00,
+        "description": "High-power microwave oven with digital display.",
+        "category": "Kitchen",
+        "image": "https://example.com/images/microwave-oven.jpg",
+        "sold": false,
+        "is_sale": true,
+        "date_of_sale": null
+    },
+    {
+        "title": "Travel Backpack",
+        "price": 60.00,
+        "description": "Lightweight travel backpack with multiple compartments.",
+        "category": "Accessories",
+        "image": "https://example.com/images/travel-backpack.jpg",
+        "sold": true,
+        "is_sale": true,
+        "date_of_sale": "2024-11-08"
+    },
+    {
+        "title": "Desk Lamp",
+        "price": 30.00,
+        "description": "LED desk lamp with adjustable brightness.",
+        "category": "Furniture",
+        "image": "https://example.com/images/desk-lamp.jpg",
+        "sold": true,
+        "is_sale": true,
+        "date_of_sale": "2024-11-11"
+    },
+    {
+        "title": "Electric Scooter",
+        "price": 700.00,
+        "description": "Eco-friendly electric scooter with long battery life.",
+        "category": "Electronics",
+        "image": "https://example.com/images/electric-scooter.jpg",
+        "sold": false,
+        "is_sale": false,
+        "date_of_sale": null
+    },
+    {
+        "title": "Fitness Tracker",
+        "price": 60.00,
+        "description": "Wearable fitness tracker with sleep monitoring.",
+        "category": "Fitness",
+        "image": "https://example.com/images/fitness-tracker.jpg",
+        "sold": true,
+        "is_sale": true,
+        "date_of_sale": "2024-11-19"
+    }
+]
