@@ -1,11 +1,15 @@
-from rest_framework import generics, filters
-from rest_framework.permissions import IsAuthenticated
-from products.models import Product
-from products.serializers import ProductSerializer
+import django_filters.rest_framework as django_filters
 
 # import django_filters
 from django_filters import FilterSet
-import django_filters.rest_framework as django_filters
+from rest_framework import filters, generics
+from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from django.db.models import Min, Max
+
+from products.models import Product
+from products.serializers import ProductSerializer
 
 
 class ProductFilter(FilterSet):
@@ -39,7 +43,7 @@ class ProductListView(generics.ListAPIView):
 
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
     # filters
     filter_backends = [
@@ -55,3 +59,32 @@ class ProductListView(generics.ListAPIView):
 
     # ordering fields
     ordering_fields = ["price", "title"]
+
+
+class CategoriesListView(generics.ListAPIView):
+    """
+    Categories List View for listing all categories.
+
+    The view is inherited from ListAPIView. The view is used to list all categories.
+    """
+
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        categories = Product.objects.values_list("category", flat=True).distinct()
+        return Response(categories)
+
+
+class PriceRangeView(APIView):
+    """
+    Price Range View for getting the price range of products.
+
+    The view is inherited from ListAPIView. The view is used to get the price range of products.
+    """
+
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        min_price = Product.objects.aggregate(min_price=Min("price"))["min_price"]
+        max_price = Product.objects.aggregate(max_price=Max("price"))["max_price"]
+        return Response({"min_price": min_price, "max_price": max_price})

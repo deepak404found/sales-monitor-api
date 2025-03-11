@@ -34,6 +34,7 @@ SECRET_KEY = "django-insecure-js2m$^cv)r$*yus_!e6&qfk_mb0k@qqm0c%58os(s4h9kvwd4(
 DEBUG = os.getenv("DJANGO_DEBUG", "False").lower() == "true"
 
 ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "*").split(",")
+
 # CORS_ALLOWED_ORIGINS = os.getenv("CORS_ALLOWED_ORIGINS", "*").split(",")
 # CORS_ALLOW_CREDENTIALS = True
 
