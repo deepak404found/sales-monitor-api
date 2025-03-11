@@ -6,10 +6,14 @@ from rest_framework import filters, generics
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from django.db.models import Min, Max
-
+from django.db.models import Min, Max, Sum, Count
+from django.db.models.functions import TruncMonth
 from products.models import Product
-from products.serializers import ProductSerializer
+from products.serializers import (
+    ProductSerializer,
+    SalesChartSerializer,
+    ItemsChartSerializer,
+)
 
 
 class ProductFilter(FilterSet):
@@ -88,3 +92,93 @@ class PriceRangeView(APIView):
         min_price = Product.objects.aggregate(min_price=Min("price"))["min_price"]
         max_price = Product.objects.aggregate(max_price=Max("price"))["max_price"]
         return Response({"min_price": min_price, "max_price": max_price})
+
+
+class SalesChartView(APIView):
+    """
+    Sales Chart View
+
+    This view generates and returns data for a chart showing the total sales in each category,
+    grouped by month.
+
+    """
+
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        data = (
+            Product.objects.filter(sold=True)
+            .annotate(month=TruncMonth("date_of_sale"))
+            .values("month", "category")
+            .annotate(total_sales=Sum("price"))
+            .order_by("month")
+        )
+
+        # Create a dictionary to group by month
+        grouped_data = {}
+        for item in data:
+            month = item["month"].strftime("%b %Y") if item["month"] else None
+            category = item["category"]
+            total_sales = item["total_sales"]
+
+            if month not in grouped_data:
+                grouped_data[month] = {"month": month, "sales": {}}
+
+            grouped_data[month]["sales"][category] = total_sales
+
+        # Ensure all categories are present even if zero sales
+        all_categories = Product.objects.values_list("category", flat=True).distinct()
+        for month in grouped_data:
+            for category in all_categories:
+                if category not in grouped_data[month]["sales"]:
+                    grouped_data[month]["sales"][category] = 0
+
+        # Convert to list
+        result = list(grouped_data.values())
+
+        serializer = SalesChartSerializer(result, many=True)
+        return Response(serializer.data)
+
+
+class ItemsChartView(APIView):
+    """
+    Items Chart View
+
+    This view generates and returns data for a chart showing the total number of items sold
+    in each category, grouped by month.
+    """
+
+    def get(self, request, *args, **kwargs):
+        data = (
+            Product.objects.filter(sold=True)
+            .annotate(month=TruncMonth("date_of_sale"))
+            .values("month", "category")
+            .annotate(total_items=Count("id"))
+            .order_by("month")
+        )
+
+        # Group the data by month and category
+        grouped_data = {}
+        for item in data:
+            month = item["month"].strftime("%b %Y") if item["month"] else None
+            category = item["category"]
+            total_items = item["total_items"]
+
+            if month not in grouped_data:
+                grouped_data[month] = {"month": month, "items": {}}
+
+            grouped_data[month]["items"][category] = total_items
+
+        # Ensure all categories are present even if no items were sold
+        all_categories = Product.objects.values_list("category", flat=True).distinct()
+        for month in grouped_data:
+            for category in all_categories:
+                if category not in grouped_data[month]["items"]:
+                    grouped_data[month]["items"][category] = 0
+
+        # Convert to list
+        result = list(grouped_data.values())
+
+        # ✅ Use the serializer here:
+        serializer = ItemsChartSerializer(result, many=True)
+        return Response(serializer.data)
