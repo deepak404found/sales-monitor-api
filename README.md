@@ -46,7 +46,3 @@ The Sales Monitor API is a Django-based application that allows users to monitor
 - **Product List**: `GET /api/products/list`
 - **Sales Chart**: `GET /api/products/sales_chart`
 - **Items Chart**: `GET /api/products/items_chart`
-
-## License
-
-This project is licensed under the MIT License.
