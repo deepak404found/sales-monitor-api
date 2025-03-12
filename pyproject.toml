@@ -16,7 +16,7 @@ dependencies = [
 ]
 
 [tool.poetry]
-packages = [{include = "sales_monitor_api", from = "src"}]
+packages = [{include = "sales_monitor_api"}]
 
 
 [build-system]
