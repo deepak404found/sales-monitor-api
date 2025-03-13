@@ -45,7 +45,7 @@ ________________________________________
 
 ### 3.2 Key Features
 
-✅ RESTful API for CRUD operations on products.
+✅ RESTful API for querying product data.
 
 ✅ Secure handling of user authentication and authorization.
 
