@@ -67,3 +67,9 @@ This API provides a structured and secure way to handle product and sales data u
 - **Product List**: `GET /api/products/list?category=category_name&search=search_query&ordering=ordering_field&limit=limit&offset=offset`
 - **Sales Chart**: `GET /api/products/sales_chart`
 - **Items Chart**: `GET /api/products/items_chart`
+
+## 📚 **Postman Documentation**
+
+The API documentation is available in the Postman collection below:
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://documenter.getpostman.com/view/17055995/2sAYkAPh7S)
