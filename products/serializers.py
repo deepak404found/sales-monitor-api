@@ -15,6 +15,16 @@ class ProductSerializer(serializers.ModelSerializer):
         read_only_fields = ["id"]
 
 
+class UpdateProductSerializers(serializers.ModelSerializer):
+    """
+    Serializer for updating a product
+    """
+
+    class Meta:
+        model = Product
+        fields = "__all__"
+
+
 class SalesChartSerializer(serializers.Serializer):
     """
     Serializer for sales chart data

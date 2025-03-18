@@ -1,18 +1,19 @@
 import django_filters.rest_framework as django_filters
+from django.db.models import Count, Max, Min, Sum
+from django.db.models.functions import TruncMonth
 
 # import django_filters
 from django_filters import FilterSet
-from rest_framework import filters, generics
-from rest_framework.views import APIView
+from rest_framework import filters, generics, mixins
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from django.db.models import Min, Max, Sum, Count
-from django.db.models.functions import TruncMonth
+from rest_framework.views import APIView
+
 from products.models import Product
 from products.serializers import (
+    ItemsChartSerializer,
     ProductSerializer,
     SalesChartSerializer,
-    ItemsChartSerializer,
 )
 
 
@@ -47,7 +48,7 @@ class ProductListView(generics.ListAPIView):
 
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     # filters
     filter_backends = [
@@ -63,6 +64,42 @@ class ProductListView(generics.ListAPIView):
 
     # ordering fields
     ordering_fields = ["price", "title"]
+
+
+class ProductCreateView(generics.CreateAPIView):
+    """
+    Product Create View for creating products.
+
+    - use method POST to create a new product.
+    """
+
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    permission_classes = [IsAuthenticated]
+
+
+class ProductUpdateView(generics.UpdateAPIView):
+    """
+    Product Update View for updating products.
+
+    - use method PUT to update a product.
+    """
+
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    permission_classes = [IsAuthenticated]
+
+
+class ProductDeleteView(generics.DestroyAPIView):
+    """
+    Product Delete View for deleting products.
+
+    - use method DELETE to delete a product.
+    """
+
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    permission_classes = [IsAuthenticated]
 
 
 class CategoriesListView(generics.ListAPIView):
