@@ -22,8 +22,8 @@ class Product(models.Model):
     description = models.TextField()
     category = models.CharField(max_length=255)
     image = models.URLField()
-    sold = models.BooleanField()
-    is_sale = models.BooleanField()
+    sold = models.BooleanField(auto_created=True, default=False)
+    is_sale = models.BooleanField(auto_created=True, default=False)
     date_of_sale = models.DateField(null=True, blank=True)
 
     def __str__(self):

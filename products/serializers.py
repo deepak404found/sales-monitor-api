@@ -13,16 +13,16 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = "__all__"
         read_only_fields = ["id"]
-
-
-class UpdateProductSerializers(serializers.ModelSerializer):
-    """
-    Serializer for updating a product
-    """
-
-    class Meta:
-        model = Product
-        fields = "__all__"
+        extra_kwargs = {
+            "title": {"required": True},
+            "price": {"required": True},
+            "description": {"required": True},
+            "category": {"required": True},
+            "image": {"required": True},
+            "sold": {"required": False},
+            "is_sale": {"required": False},
+            "date_of_sale": {"required": False},
+        }
 
 
 class SalesChartSerializer(serializers.Serializer):
